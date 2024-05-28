@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block structure%}
+
+<h1 class="logo me-auto menu section-bg" data-aos="zoom-in" data-aos-delay="100"><a href="{% url 'meals:meal_list' %}">Restaurantly</a></h1>
+<div class=" section-bg " data-aos="zoom-in" data-aos-delay="100"> 
+    <div class="text-center p-5">
+        <a id="menu-link" href="{% url 'meals:meal_list' %}" class="nav-link scroll menu menu-link  btn btn-success">Menu</a>
+    </div>
+</div>
+<div class="col-lg-12 mt-4 mt-lg-0 p-5 align-items-cente" data-aos="zoom-in" data-aos-delay="100">
+    <div class="tab-content ">
+        <div class="tab-pane active show" id="tab-1">
+            <div class="row">
+                <div class="col-lg-7 p-5"> <!-- Añadido: clase col-lg-8 para dar margen al contenido -->
+                    <div class=" p-5"> <!-- Añadido: wrapper con padding -->
+                        <h1>{{ meal_detail.name }}</h1>
+                        <p class="fst-italic bi bi-check-circle"> {{ meal_detail.description }}</p>
+                        <p class="fst-italic bi bi-check-circle">People: {{ meal_detail.people }}</p>
+                        <p class=" fst-italic bi bi-check-circle">Preparation Time: {{ meal_detail.preperation_time }}</p>
+                        <p> Price: ${{ meal_detail.price }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2 about-img " data-aos="zoom-in" data-aos-delay="100">
+                    <img src="{{ meal_detail.imagen.url }}" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock structure %}
